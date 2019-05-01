@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Manage Customer</h1>
+</div>
+
+
+<div class="form-group">
+  <label>Customer ID</label>
+  <input #id type="text" class="form-control" placeholder="Customer ID">
+</div>
+
+<div class="form-group">
+  <label>Customer Name</label>
+  <input #name type="text" class="form-control" placeholder="Customer Name">
+</div>
+
+<div class="form-group">
+  <label>Customer Address</label>
+  <input #address type="text" class="form-control" placeholder="Customer Address">
+</div>
+
+<button class="btn btn-primary" (click)="saveCustomer(id.value,name.value,address.value)">Save</button>
+<button class="btn btn-danger">Clear</button>
+
+<div class="row">
+  <div class="col col-12">
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>Customer ID</th>
+    <th>Customer Name</th>
+    <th>Customer Address</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.id}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.address}}</td>
+    <td><button (click)="deletecustomer(customer)" class="btn btn-danger">Delete</button> </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</div>

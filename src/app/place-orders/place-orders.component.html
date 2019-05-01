@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Place Orders</h1>
+
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="txtOrderID">Order ID</label>
+      <input #txtOrderID type="text" class="form-control" id="txtOrderID" aria-describedby="emailHelp" value={{itemcode}}>
+    </div>
+    <div class="form-group">
+      <label for="txtCustomerID">Customer ID</label>
+      <input #txtCustomerID type="text" class="form-control" id="txtCustomerID" aria-describedby="emailHelp" placeholder="Enter Customer ID">
+    </div>
+    <div class="form-group">
+      <label for="txtItemCode">Item ID</label>
+      <input #txtItemCode type="text" class="form-control" id="txtItemCode" aria-describedby="emailHelp" placeholder="Enter Item Code">
+    </div>
+    <div class="form-group">
+      <label for="txtItemDes">Item Description</label>
+      <input #txtItemDes type="text" class="form-control" id="txtItemDes" aria-describedby="emailHelp" placeholder="Enter Item Description">
+    </div>
+    <div class="form-group">
+      <label for="txtItemprice">Unit Price</label>
+      <input #txtItemprice type="text" class="form-control" id="txtItemprice" aria-describedby="emailHelp" placeholder="Enter Price">
+    </div>
+    <div class="form-group">
+      <label for="txtItemQty">Qty</label>
+      <input #txtItemQty type="text" class="form-control" id="txtItemQty" aria-describedby="emailHelp" placeholder="Enter Qty">
+    </div>
+    <button class="btn btn-primary"  (click)="AddItems(txtItemCode.value,txtItemDes.value,txtItemQty.value,txtItemprice.value)">Add</button>
+
+  </div>
+  <div class="col-md-6">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Item Code</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let details of itemdetails">
+        <td>{{details.item_code}}</td>
+        <td>{{details.description}}</td>
+        <td>{{details.itemqty}}</td>
+        <td>{{details.item_price}}</td>
+        <td><button (click)="deleteCustomer(customer)" class="btn btn-danger">Delete</button></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th colspan="3">Total :</th>
+        <th colspan="2"></th>
+      </tr>
+      </tfoot>
+    </table>
+    <button (click)="PurchaseOrder(txtOrderID.value,txtCustomerID.value,txtItemCode.value,txtItemDes.value,txtItemQty.value)" type="submit" class="btn btn-primary">Place Order</button>
+  </div>
+</div>

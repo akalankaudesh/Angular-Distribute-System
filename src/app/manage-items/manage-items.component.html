@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h1 class="h2">Manage Items</h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="txtItemCode">Code</label>
+      <input #txtItemCode type="text" class="form-control" id="txtItemCode" aria-describedby="emailHelp" placeholder="Enter Item Code">
+    </div>
+    <div class="form-group">
+      <label for="txtItemDes">Description</label>
+      <input #txtItemDes type="text" class="form-control" id="txtItemDes" aria-describedby="emailHelp" placeholder="Enter Item Description">
+    </div>
+    <div class="form-group">
+      <label for="txtItemPrice">Unit Price</label>
+      <input #txtItemPrice type="text" class="form-control" id="txtItemPrice" aria-describedby="emailHelp" placeholder="Enter Unit Price">
+    </div>
+    <div class="form-group">
+      <label for="txtItemQty">Qty On Hand</label>
+      <input #txtItemQty type="text" class="form-control" id="txtItemQty" aria-describedby="emailHelp" placeholder="Enter Qty On Hand">
+    </div>
+    <button (click)="saveItem(txtItemCode.value,txtItemDes.value,txtItemPrice.value,txtItemQty.value)" type="submit" class="btn btn-primary">Save</button>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.code}}</td>
+        <td>{{item.itemdescription}}</td>
+        <td>{{item.unitproce}}</td>
+        <td>{{item.qty}}</td>
+        <td><button (click)="deleteCustomer(customer)" class="btn btn-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
